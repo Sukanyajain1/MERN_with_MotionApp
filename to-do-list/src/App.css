@@ -1,0 +1,10 @@
+/* .App {
+  
+}
+ */
+.taskItem {
+  width: 600px;
+  display: flex;
+  /* justify-content:start; */
+
+}
