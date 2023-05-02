@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter, Switch, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import StarWarsForm from './components/StarWarsForm';
 import SwResults from './components/SwResults';
 
