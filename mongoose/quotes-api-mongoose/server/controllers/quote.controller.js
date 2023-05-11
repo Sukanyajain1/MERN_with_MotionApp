@@ -62,3 +62,15 @@ module.exports.deleteQuote = (req, res)=>{
         })
 }
 
+module.exports.findRandomQuote = (req, res) =>{
+    Quote.find()
+        .then(allQuotes=>{
+            // get a random index number from index 0 up to but not including the allQuotes.length
+            let randomIdx = Math.floor(Math.random()*allQuotes.length)
+
+            res.json({results: allQuotes[randomIdx]})
+        })
+        .catch(err=>{
+            res.json({msg: "Somthing went wrong: ", error: err})
+        })
+}
