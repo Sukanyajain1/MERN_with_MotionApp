@@ -24,3 +24,41 @@ module.exports.createQuote = (req, res)=>{
             res.json({msg: "Somthing went wrong: ", error: err})
         })
 }
+
+module.exports.findOneQuote = (req, res)=>{
+    // req.body represents the form information
+    Quote.findOne({_id: req.params.id})
+        .then(foundQuote => {
+            res.json({results: foundQuote})
+        })
+        .catch(err=> {
+            res.json({msg: "Somthing went wrong: ", error: err})
+        })
+}
+
+module.exports.updateQuote = (req, res)=>{
+    // req.body represents the form information
+    Quote.findOneAndUpdate(
+        {_id: req.params.id},
+        req.body,
+        {new: true, runValidators: true}
+    )
+        .then(updateQuote => {
+            res.json({results: updateQuote})
+        })
+        .catch(err=> {
+            res.json({msg: "Somthing went wrong: ", error: err})
+        })
+}
+
+module.exports.deleteQuote = (req, res)=>{
+    // req.body represents the form information
+    Quote.deleteOne({_id: req.params.id})
+        .then(deletedQuote => {
+            res.json({results: deletedQuote})
+        })
+        .catch(err=> {
+            res.json({msg: "Somthing went wrong: ", error: err})
+        })
+}
+
